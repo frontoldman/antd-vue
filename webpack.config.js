@@ -24,26 +24,25 @@ module.exports = {
                 loader: 'vue'
             },
             {
-                test : /\.js$/,
+                test: /\.js$/,
                 loader: 'babel',
-                exclude : /node_modules/
+                exclude: [/node_modules/]
             },
             {
-                test: /\.css$/,
-                loader: "style!css",
-                include : __dirname
+                test: /\.json$/,
+                loader: 'json'
             },
             {
                 test: /\.html$/,
                 loader: 'vue-html'
             },
             {
-                test: /\.png$/,
-                loader: "url-loader?limit=100000"
-            },
-            {
-                test: /\.jpg$/,
-                loader: "file-loader"
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'url',
+                query: {
+                    limit: 10000,
+                    name: '[name].[ext]?[hash]'
+                }
             }
         ]
     },
