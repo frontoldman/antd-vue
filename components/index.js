@@ -7,7 +7,7 @@ import affix from './affix/index.vue'
 new Vue({
     el: 'body',
     components: {
-        App: affix
+        affix: affix
     }
 })
 

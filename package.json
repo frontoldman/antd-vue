@@ -4,7 +4,9 @@
   "description": "antd vue",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "webpack -p",
+    "dev": "webpack -w"
   },
   "repository": {
     "type": "git",
