@@ -1,0 +1,26 @@
+{
+  "name": "antd-vue",
+  "version": "1.0.0",
+  "description": "antd vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontoldman/antd-vue.git"
+  },
+  "keywords": [
+    "antd",
+    "vue"
+  ],
+  "author": "zr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frontoldman/antd-vue/issues"
+  },
+  "homepage": "https://github.com/frontoldman/antd-vue#readme",
+  "dependencies": {
+    "vue": "^1.0.24"
+  }
+}
