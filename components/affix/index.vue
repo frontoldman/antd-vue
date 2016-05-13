@@ -1,7 +1,19 @@
 /**
  * Created by randada on 2016/5/13.
  */
- 
+
+<style type="text/css">
+    .affix{
+        position: fixed;
+        top:0;
+    }
+</style>
+
+ <template>
+     <div class="affix" v-bind:style="affixStyle">
+         <slot></slot>
+     </div>
+ </template>
 
  <script>
 
@@ -13,7 +25,7 @@
         }
       },
       ready () {
-
+          this.affixStyle = {}
       },
       destroyed () {
 
@@ -21,5 +33,7 @@
     }
 
  </script>
+
+
  
  
