@@ -6,10 +6,12 @@
     <div>
         <h1>I am a Counter Component. Edit me in dev mode.</h1>
         <p>Current count: {{count}}</p>
-      </div>
+    </div>
  </template>
  
  <script>
+    import Vue from 'Vue';
+
     export default {
       data () {
         return { count: 0 }
@@ -23,6 +25,7 @@
         clearInterval(this.handle)
       }
     }
+
  </script>
  
  

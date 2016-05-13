@@ -1,6 +1,16 @@
 /**
  * Created by 52913 on 2016/5/13.
  */
-import affix from './affix/index.vue'
+import Vue from 'vue'
+//import affix from './affix/index.vue'
 
-export default affix;
+
+console.log(Vue);
+
+// new Vue({
+//     el: 'body',
+//     components: {
+//         App: affix
+//     }
+// })
+

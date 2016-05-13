@@ -1,5 +1,5 @@
 /**
- * Created by 52913 on 2016/4/6.
+ * Created by 52913 on 2016/5/13.
  */
 
 var path = require('path');
@@ -11,25 +11,31 @@ module.exports = {
     ],
     output:{
         path : path.join(__dirname, 'dist'),
-        filename : 'bundle.js',
-        publicPath : '/static/'
+        publicPath: '/dist/',
+        filename : 'bundle.js'
+    },
+    resolveLoader: {
+        root: path.join(__dirname, 'node_modules'),
     },
     module:{
         loaders:[
-            {
-                test : /\.js$/,
-                loaders: ['babel'],
-                exclude : ['node_modules'],
-                include : __dirname
-            },
             {
                 test: /\.vue$/,
                 loader: 'vue'
             },
             {
+                test : /\.js$/,
+                loader: 'babel',
+                exclude : /node_modules/
+            },
+            {
                 test: /\.css$/,
                 loader: "style!css",
                 include : __dirname
+            },
+            {
+                test: /\.html$/,
+                loader: 'vue-html'
             },
             {
                 test: /\.png$/,
@@ -41,10 +47,10 @@ module.exports = {
             }
         ]
     },
-    babel: {
-        presets: ['es2015', 'stage-0'],
-        plugins: ['transform-runtime']
-    }
+    devServer: {
+        historyApiFallback: true,
+        noInfo: true
+    },
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -62,5 +68,5 @@ if (process.env.NODE_ENV === 'production') {
         new webpack.optimize.OccurenceOrderPlugin()
     ]
 } else {
-    module.exports.devtool = '#source-map'
+    //module.exports.devtool = '#source-map'
 }
