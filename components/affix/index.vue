@@ -1,38 +1,59 @@
 /**
- * Created by randada on 2016/5/13.
- */
+* Created by randada on 2016/5/13.
+*/
 
 <style type="text/css">
-    .affix{
+    .affix {
         position: fixed;
-        top:0;
     }
 </style>
 
- <template>
-     <div class="affix" v-bind:style="affixStyle">
-         <slot></slot>
-     </div>
- </template>
+<template>
+    <div class="affix" v-bind:style="affixStyle">
+        <slot></slot>
+    </div>
+</template>
 
- <script>
+<script>
 
-    export default {
-      data () {
-        return {
-            offsetTop: null,
-            offsetBottom: null
-        }
-      },
-      ready () {
-          this.affixStyle = {}
-      },
-      destroyed () {
-
-      }
+    function isDefined(val){
+        console.log(val)
+        console.log(typeof val)
+        return typeof val !== 'undefined';
     }
 
- </script>
+    export default {
+        props:[
+            'offsetTop',
+            'offsetBottom'
+        ],
+        ready () {
+
+        },
+        computed: {
+            affixStyle() {
+
+                var top, bottom;
+
+                if(isDefined(this.offsetTop)){
+                    top = this.offsetTop + 'px'
+                    console.log(11);
+                }else if(isDefined(this.offsetBottom)){
+                    bottom = this.offsetBottom + 'px'
+                }
+
+                return {
+                    top,
+                    bottom
+                }
+            }
+        },
+        destroyed () {
+
+        }
+    }
+
+</script>
 
 
  
