@@ -16,11 +16,7 @@
 
 <script>
 
-    function isDefined(val){
-        console.log(val)
-        console.log(typeof val)
-        return typeof val !== 'undefined';
-    }
+    import { isDefined } from '../../utils/'
 
     export default {
         props:[
@@ -34,12 +30,12 @@
             affixStyle() {
 
                 var top, bottom;
-
                 if(isDefined(this.offsetTop)){
-                    top = this.offsetTop + 'px'
-                    console.log(11);
+                    top = this.offsetTop + 'px';
                 }else if(isDefined(this.offsetBottom)){
-                    bottom = this.offsetBottom + 'px'
+                    bottom = this.offsetBottom + 'px';
+                }else{
+                    top = 0;
                 }
 
                 return {
