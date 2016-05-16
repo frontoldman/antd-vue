@@ -35,6 +35,7 @@
             this.getInitPosition();
             this.placeEle();
             window.addEventListener('scroll', this._handleScroll, false);
+            window.addEventListener('resize', this._handleScroll, false);
         },
         computed: {
             affixStyle() {
@@ -50,8 +51,9 @@
                 return this.offsetBottom * 1;
             }
         },
-        destroyed () {
-
+        beforeDestroyed () {
+            window.removeEventListener('scroll', this._handleScroll);
+            window.removeEventListener('resize', this._handleScroll);
         },
         methods: {
             _handleScroll() {
@@ -90,11 +92,6 @@
             getInitPosition() {
                 //当元素位于视窗外面的时候,位置信息是负数,位置信息是相对于可视窗口左上角的信息,不影响计算。
                 this.initPosition = this.$el.getBoundingClientRect();
-            },
-            getScrollTop() {
-
-
-
             }
         }
     }
