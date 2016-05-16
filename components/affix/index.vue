@@ -59,7 +59,7 @@
             placeEle() {
                 var top, bottom, hasFixedClass = false;
                 var scrollTop = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
-                var docHeight = document.body.clientHeight;
+                const currentPosition = this.$el.getBoundingClientRect();
 
                 if (isDefined(this.offsetTop)) {
                     if (this.initPosition.top <= scrollTop + this._offsetTop) {
@@ -67,12 +67,11 @@
                         hasFixedClass = true;
                     }
                 } else if (isDefined(this.offsetBottom)) {
-                    if(this.initPosition.bottom >= (docHeight - scrollTop) + this._offsetBottom){
-
+                    if(this.initPosition.bottom <= 0
+                            || this.initPosition.bottom - scrollTop > window.innerHeight - this.$el.clientHeight - this._offsetBottom){
+                        bottom = this._offsetBottom + 'px';
+                        hasFixedClass = true;
                     }
-
-                    bottom = this._offsetBottom + 'px';
-                    hasFixedClass = true;
                 } else {
                     if (this.initPosition.top <= scrollTop) {
                         top = 0;
@@ -86,7 +85,7 @@
 
             },
             getInitPosition() {
-                //当元素位于视窗外面的时候,位置信息是负数,不影响计算
+                //当元素位于视窗外面的时候,位置信息是负数,位置信息是相对于可视窗口左上角的信息,不影响计算。
                 this.initPosition = this.$el.getBoundingClientRect();
             },
             getScrollTop() {
