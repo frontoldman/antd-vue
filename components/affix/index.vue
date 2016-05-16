@@ -33,6 +33,7 @@
         },
         ready () {
             this.getInitPosition();
+            this.placeEle();
             window.addEventListener('scroll', this._handleScroll, false);
         },
         computed: {
@@ -59,13 +60,14 @@
             placeEle() {
                 var top, bottom, hasFixedClass = false;
                 var scrollTop = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
-                const currentPosition = this.$el.getBoundingClientRect();
 
                 if (isDefined(this.offsetTop)) {
+                    //起始高度 > 滚动长度 + 设置的偏移高度时候开始偏移
                     if (this.initPosition.top <= scrollTop + this._offsetTop) {
                         top = this._offsetTop + 'px';
                         hasFixedClass = true;
                     }
+                    //起始高度小于0,或者起始高度 - 滚动长度 大于 视窗高度-元素高度-偏移高度
                 } else if (isDefined(this.offsetBottom)) {
                     if(this.initPosition.bottom <= 0
                             || this.initPosition.bottom - scrollTop > window.innerHeight - this.$el.clientHeight - this._offsetBottom){
@@ -73,6 +75,7 @@
                         hasFixedClass = true;
                     }
                 } else {
+                    //默认偏移量为0
                     if (this.initPosition.top <= scrollTop) {
                         top = 0;
                         hasFixedClass = true;
