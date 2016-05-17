@@ -27,7 +27,7 @@
 </style>
 
 <template>
-    <button :type="buttonType" class="ant-btn {{themeClass}} {{antBtnClicked}} {{sizeClass}} {{shapeClass}} {{iconBtnClass}}" v-on:mouseup="mouseUp">
+    <button :type="buttonType" :disabled="disabled" class="ant-btn {{themeClass}} {{antBtnClicked}} {{sizeClass}} {{shapeClass}} {{iconBtnClass}}" v-on:mouseup="mouseUp">
         <i v-if="icon" class="anticon {{iconClass}}"></i>
         <slot></slot>
     </button>
@@ -69,6 +69,10 @@
             icon: {
                 type: String,
                 default: ''
+            },
+            disabled:{
+                type: Boolean,
+                default: false
             }
         },
         data() {
@@ -103,8 +107,6 @@
                 if(this.icon === ''){
                     return '';
                 }
-
-                //iconClass = this.prefixCls + this.icon;
 
                 if(this._slotContents){
                     hasChild = true;
