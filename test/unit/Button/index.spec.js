@@ -50,7 +50,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct class', function () {
+  it('should has correct class', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -66,7 +66,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct htmlType', function () {
+  it('should has correct htmlType', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -81,7 +81,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct size', function () {
+  it('should has correct size', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -97,7 +97,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct shape', function () {
+  it('should has correct shape', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -113,7 +113,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct icon', function () {
+  it('should has correct icon', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -128,7 +128,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct disabled', function () {
+  it('should has correct disabled', () => {
 
     var vm = new Vue({
       el: 'body',
@@ -143,7 +143,7 @@ describe('Button', function () {
 
   })
 
-  it('should has correct loading', function () {
+  it('should has correct loading', () => {
 
     var vm = new Vue({
       el: 'body',
