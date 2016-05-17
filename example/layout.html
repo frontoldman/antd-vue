@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <style type="text/css">
+        .column-demo{
+            height: 20px;
+            background: red;
+        }
+    </style>
+</head>
+<body style="height: 2000px">
+
+<Row>
+    <Column class="column-demo" :span="12">.col-12</Column>
+</Row>
+
+<Row>
+    <Column class="column-demo" :span="6">.col-6</Column>
+    <Column class="column-demo" :span="6">.col-6</Column>
+</Row>
+
+
+<script src="../dist/bundle.js"></script>
+</body>
+</html>

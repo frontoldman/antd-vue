@@ -3,17 +3,12 @@
  */
 
 import Vue from 'vue'
-import affix from '../../../components/affix/index.vue'
+import Affix from '../../../components/Affix/Affix.vue'
 
 describe('affix', function () {
 
-
-  it('should has default setting', function () {
-
-    expect(affix.props.length).toBe(2);
-    
-
+  it('should has default setting', () => {
+    expect(Affix.props.length).toBe(2);
   })
-
 
 })

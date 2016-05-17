@@ -78,7 +78,7 @@
                 type: String,
                 default: ''
             },
-            disabled:{
+            disabled:{      //TODO 取消布尔值,怎么才能获取当有这个值就为true呢
                 type: Boolean,
                 default: false
             },
@@ -108,24 +108,18 @@
             },
             buttonType() {
                 const htmlType = this.htmlType;
-                if(htmlTypes.includes(htmlType)){
+                if(htmlTypes.indexOf(htmlType) > -1){
                     return htmlType;
                 }
                 return 'button';
             },
             iconBtnClass() {
-
-                let iconClass = '', hasChild = false;
-
+                let iconClass = '';
                 if(this.icon === ''){
                     return '';
                 }
 
-                if(this._slotContents){
-                    hasChild = true;
-                }
-
-                return hasChild ? iconClass : this.prefixCls + 'icon-only';
+                return this._slotContents ? iconClass : this.prefixCls + 'icon-only';
             },
             iconClass() {
                 return 'anticon-' + this.icon;
