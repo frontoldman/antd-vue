@@ -4,14 +4,24 @@
 // import 'reset.css'
 import 'antd/dist/antd.css'
 import Vue from 'vue'
-import * as Affix from './Affix/index.vue'
-import * as Button from './Button/index.vue'
+import * as Affix from './Affix/Affix.vue'
+import * as Button from './Button/Button.vue'
+import * as ButtonGroup from './Button/ButtonGroup.vue'
 
 new Vue({
     el: 'body',
     components: {
         Affix,
-        Button
+        Button,
+        ButtonGroup
+    },
+    data:{
+      loading: false
+    },
+    methods:{
+        testClick() {
+            console.log('click happened!')
+        }
     }
 })
 
