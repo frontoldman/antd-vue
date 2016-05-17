@@ -7,13 +7,15 @@ import Vue from 'vue'
 import * as Affix from './Affix/Affix.vue'
 import * as Button from './Button/Button.vue'
 import * as ButtonGroup from './Button/ButtonGroup.vue'
+import * as Icon from './Icon/Icon.vue'
 
 new Vue({
     el: 'body',
     components: {
         Affix,
         Button,
-        ButtonGroup
+        ButtonGroup,
+        Icon
     },
     data:{
       loading: false
