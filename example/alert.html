@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Affix</title>
+</head>
+<body style="height: 2000px">
+
+<hr style="margin:20px 0;"/>
+
+<Row type="flex" justify="center">
+    <Column span="10">
+        <div v-if="alertShow">
+            <Alert closable show-icon :on-close="() => { alertShow = false; }" type="success" message="那你" description="神奇的描述 哈哈哈"></Alert>
+        </div>
+    </Column>
+    <Column>
+        <Button :on-click="() => alertShow = true">点击显示</Button>
+        <Button :on-click="() => alertShow = false">点击隐藏</Button>
+    </Column>
+    <Column span="10">
+        <Alert closable show-icon type="success" message="那你" description="神奇的描述 哈哈哈"></Alert>
+    </Column>
+
+    <Column span="10">
+        <Alert closable show-icon type="info" message="那你"></Alert>
+    </Column>
+
+    <Column span="10">
+        <Alert closable show-icon type="warning" message="那你" description="神奇的描述 哈哈哈"></Alert>
+    </Column>
+
+    <Column span="10">
+        <Alert closable show-icon type="success" message="那你" description="神奇的描述 哈哈哈"></Alert>
+    </Column>
+</Row>
+
+<script src="../dist/bundle.js"></script>
+
+</body>
+</html>
