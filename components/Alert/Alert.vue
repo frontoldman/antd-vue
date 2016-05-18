@@ -44,8 +44,6 @@
                     error: !description ? 'anticon-cross-circle' : 'anticon-cross-circle-o'
                 }
 
-                console.log(this.showIcon)
-
                 return {
                     ['anticon']: 1,
                     ['ant-alert-icon']: 1,
@@ -58,7 +56,6 @@
         },
         methods: {
             close() {
-                //this.show = false;
                 this.onClose && this.onClose();
             }
         }
