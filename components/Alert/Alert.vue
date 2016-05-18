@@ -9,10 +9,10 @@
 <template>
     <div :class="alertClasses">
         <i v-show="showIcon" :class="iconClasses"></i>
-
         <span class="ant-alert-message">{{message}}</span>
         <span class="ant-alert-description" v-if="description">{{description}}</span>
-        <a class="ant-alert-close-icon" @click="close" v-show="closable && !closeText"><i class=" anticon anticon-cross"></i></a>
+        <a class="ant-alert-close-icon" @click="close" v-show="closable && !closeText"><i
+                class=" anticon anticon-cross"></i></a>
         <a v-show="closable && closeText" class="ant-alert-close-icon">不再提醒</a>
     </div>
 </template>
