@@ -5,7 +5,7 @@
     <title>Layout</title>
     <style type="text/css">
         .column-demo{
-            height: 20px;
+            height: 40px;
             background: red;
         }
     </style>
@@ -16,11 +16,34 @@
     <Column class="column-demo" :span="12">.col-12</Column>
 </Row>
 
+<hr style="margin:20px 0;"/>
+
 <Row>
-    <Column class="column-demo" :span="6">.col-6</Column>
+    <Column class="column-demo" :span="6" :offset="12">.col-6</Column>
     <Column class="column-demo" :span="6">.col-6</Column>
 </Row>
 
+<hr style="margin:20px 0;"/>
+
+<Row>
+    <Column class="column-demo" :span="6">.col-6</Column>
+    <Column class="column-demo" :span="6" :push="3">.col-6</Column>
+</Row>
+
+<hr style="margin:20px 0;"/>
+
+<Row>
+    <Column class="column-demo" :span="6" :offset="10" pull="3">.col-6</Column>
+</Row>
+
+<hr style="margin:20px 0;"/>
+
+<Row type="flex" style="height: 200px;" justify="space-between" align="bottom">
+    <Column class="column-demo" span="4" order="4">11111</Column>
+    <Column class="column-demo" span="4" order="3">222222</Column>
+    <Column class="column-demo" span="4" order="1">.3333333</Column>
+    <Column class="column-demo" span="4" order="2">44444</Column>
+</Row>
 
 <script src="../dist/bundle.js"></script>
 </body>

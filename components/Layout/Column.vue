@@ -7,7 +7,7 @@
 </style>
 
 <template>
-    <div class="col-{{span}}"><slot></slot></div>
+    <div :class="classes"><slot></slot></div>
 </template>
 
 <script>
@@ -15,20 +15,31 @@
     export default {
         props: {
             span: {
-                type: Number,
-                default: 12
+                type: [Number, String]
+            },
+            offset: {
+                type: [Number, String]
+            },
+            push: {
+                type: [Number, String]
+            },
+            pull: {
+                type: [Number, String]
+            },
+            order: {
+                type: [Number, String]
             }
         },
-        data() {
-            return {
-                //data here
+        computed: {
+            classes() {
+                return {
+                    [`col-${this.span}`]: this.span,
+                    [`col-offset-${this.offset}`]: this.offset,
+                    [`col-push-${this.push}`]: this.push,
+                    [`col-pull-${this.pull}`]: this.pull,
+                    [`col-order-${this.order}`]: this.order
+                };
             }
-        },
-        ready() {
-            console.log(22)
-        },
-        methods: {
-
         }
     }
 
