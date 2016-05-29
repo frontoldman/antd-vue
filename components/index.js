@@ -11,6 +11,7 @@ import * as Icon from "./Icon/Icon.vue";
 import * as Row from "./Layout/Row.vue";
 import * as Column from "./Layout/Column.vue";
 import * as Alert from "./Alert/Alert.vue";
+import * as Badge from "./Badge/Badge.vue";
 
 new Vue({
   el: 'body',
@@ -21,7 +22,8 @@ new Vue({
     Icon,
     Row,
     Column,
-    Alert
+    Alert,
+    Badge
   },
   data: {
     loading: false,
