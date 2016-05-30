@@ -34,6 +34,42 @@
     </Carousel>
 </div>
 
+<div style="width: 800px;margin: 100px auto;" >
+    <Carousel effect="fade" :dots="dots">
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+    </Carousel>
+</div>
+
+<div style="width: 800px;margin: 100px auto;">
+    <Carousel vertical>
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+    </Carousel>
+</div>
+
+<div style="width: 800px;margin: 100px auto;">
+    <Carousel autoplay>
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+    </Carousel>
+</div>
+
+<div style="width: 800px;margin: 100px auto;">
+    <Carousel easing="ease-in-out">
+        <div><h3>1</h3></div>
+        <div><h3>2</h3></div>
+        <div><h3>3</h3></div>
+        <div><h3>4</h3></div>
+    </Carousel>
+</div>
+
 
 <script src="../dist/bundle.js"></script>
 <script type="text/javascript">
@@ -41,7 +77,7 @@
     new Vue({
         el: 'body',
         data: {
-
+            dots: false
         },
         methods: {
 
