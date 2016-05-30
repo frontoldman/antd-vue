@@ -8,22 +8,24 @@
 
 <template>
     <span class="ant-badge" title="{{count}}">
-        <slot></slot><sup
+        <slot></slot><sup v-if="!dot"
             data-show="true"
             class="ant-scroll-number ant-badge-count" height="{{height}}"
             :style="supStyle"
         >
-        <span v-if="count*1<overflowCount*1" v-for="itemCount in countAry" track-by="$index"
-              :style="{transform: 'translate3d(0px, ' + (-height*(itemCount*1+9)) + 'px, 0px', height: height + 'px'}"
+        <span v-if="count && count*1<overflowCount*1" v-for="itemCount in countAry" track-by="$index"
+              :style="{transform: 'translate3d(0px, ' + (-height*(itemCount*1+10)) + 'px, 0px', height: height + 'px'}"
               class="ant-scroll-number-only"
-            style="transition: none; ">
-            <p v-for="n in 9">{{n}}</p>
-            <p v-for="n in 9" :class="{'current': count == n}">{{n}}</p>
-            <p v-for="n in 9">{{n}}</p>
+            >
+            <p v-for="n in 10">{{n}}</p>
+            <p v-for="n in 10" :class="{'current': count == n}">{{n}}</p>
+            <p v-for="n in 10">{{n}}</p>
         </span>
-        <span v-if="count*1>=overflowCount*1">{{(overflowCount*1-1) + '+'}}</span>
 
-    </sup>
+        <span v-if="count && count*1>=overflowCount*1">{{(overflowCount*1-1) + '+'}}</span>
+    </sup><sup v-if="dot" data-show="true"
+               class="ant-scroll-number ant-badge-dot"
+               :style="supStyle"></sup>
     </span>
 </template>
 
@@ -42,22 +44,26 @@
             overflowCount: {
                 type: [String, Number],
                 default: 100
-            }
+            },
+            dot: Boolean
         },
         data() {
             return {
-                countAry: [],
-                supStyle: {}
+
+            }
+        },
+        computed: {
+            countAry() {
+                return (this.count + '').split('');
+            },
+            supStyle() {
+                return typeof this.style === 'String'
+                        ? JSON.parse(this.badgeStyle)
+                        : this.badgeStyle ;
             }
         },
         ready() {
-            this.countAry = (this.count + '').split('');
 
-            if(typeof this.style === 'String'){
-                this.supStyle = JSON.parse(this.badgeStyle);
-            }else{
-                this.supStyle = this.badgeStyle;
-            }
         },
         methods: {
             

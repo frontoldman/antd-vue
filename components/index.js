@@ -13,26 +13,16 @@ import * as Column from "./Layout/Column.vue";
 import * as Alert from "./Alert/Alert.vue";
 import * as Badge from "./Badge/Badge.vue";
 
-new Vue({
-  el: 'body',
-  components: {
-    Affix,
-    Button,
-    ButtonGroup,
-    Icon,
-    Row,
-    Column,
-    Alert,
-    Badge
-  },
-  data: {
-    loading: false,
-    alertShow: false
-  },
-  methods: {
-    testClick() {
-      console.log('click happened!')
-    }
-  }
-})
+Vue.component('Affix', Vue.extend(Affix));
+Vue.component('Btn', Vue.extend(Button));
+Vue.component('ButtonGroup', Vue.extend(ButtonGroup));
+Vue.component('Icon', Vue.extend(Icon));
+Vue.component('Row', Vue.extend(Row));
+Vue.component('Column', Vue.extend(Column));
+Vue.component('Alert', Vue.extend(Alert));
+Vue.component('Badge', Vue.extend(Badge));
+
+window.Vue = Vue;
+
+
 

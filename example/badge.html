@@ -19,12 +19,36 @@
     <a href="#" class="head-example"></a>
 </Badge>
 
-<Badge count="335" style="margin: 50px;"></Badge>
-<Badge count="335" :badge-style="{backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9'}"></Badge>
-<Badge count="3" style="margin: 50px;">
+<Badge :count="count" style="margin: 50px;"></Badge>
+
+<hr/>
+<Btn @click="minus()">-</Btn>
+<Btn @click="plus()">+</Btn>
+<hr/>
+
+<Badge count="335" style="margin: 50px;" :badge-style="{backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9'}"></Badge>
+<Badge style="margin: 50px;" dot>
     <Icon type="notification"></Icon>
 </Badge>
 
 <script src="../dist/bundle.js"></script>
+<script type="text/javascript">
+
+    new Vue({
+        el: 'body',
+        data: {
+            count: 5
+        },
+        methods: {
+            plus() {
+                this.count++
+            },
+            minus() {
+                this.count--
+            }
+        }
+    })
+
+</script>
 </body>
 </html>
