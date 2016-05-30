@@ -6,11 +6,25 @@
 </head>
 <body style="height: 2000px">
 
-<Button>
+<Btn>
     <Icon type="down"></Icon>
     <span>按钮加图标</span>
-</Button>
+</Btn>
 
 <script src="../dist/bundle.js"></script>
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            loading: false,
+            alertShow: false
+        },
+        methods: {
+            testClick() {
+                console.log('click happened!')
+            }
+        }
+    })
+</script>
 </body>
 </html>

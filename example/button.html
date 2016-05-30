@@ -7,59 +7,73 @@
 <body>
 <div style="height: 20px;"></div>
 
-<Button type="primary">主按钮</Button>
-<Button>次按钮</Button>
-<Button type="ghost">幽灵按钮</Button>
-<Button type="dashed">虚线按钮</Button>
+<Btn type="primary">主按钮</Btn>
+<Btn>次按钮</Btn>
+<Btn type="ghost">幽灵按钮</Btn>
+<Btn type="dashed">虚线按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" size="large">大号按钮</Button>
-<Button type="primary">中号按钮(默认)</Button>
-<Button type="primary" size="small">小号按钮</Button>
+<Btn type="primary" size="large">大号按钮</Btn>
+<Btn type="primary">中号按钮(默认)</Btn>
+<Btn type="primary" size="small">小号按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" html-type="button">中号按钮(默认)</Button>
-<Button type="primary" html-type="submit">中号按钮(默认)</Button>
-<Button type="primary" html-type="reset">中号按钮(默认)</Button>
+<Btn type="primary" html-type="button">中号按钮(默认)</Btn>
+<Btn type="primary" html-type="submit">中号按钮(默认)</Btn>
+<Btn type="primary" html-type="reset">中号按钮(默认)</Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" >中号按钮</Button>
-<Button>中号按钮</Button>
+<Btn type="primary" >中号按钮</Btn>
+<Btn>中号按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" icon="search" :on-click="testClick">中号按钮(默认)</Button>
-<Button type="primary" icon="search" shape="circle"></Button>
+<Btn type="primary" icon="search" :on-click="testClick">中号按钮(默认)</Btn>
+<Btn type="primary" icon="search" shape="circle"></Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" disabled :on-click="testClick">主按钮</Button>
-<Button disabled>次按钮</Button>
-<Button type="ghost" disabled>幽灵按钮</Button>
-<Button type="dashed" disabled>虚线按钮</Button>
+<Btn type="primary" disabled :on-click="testClick">主按钮</Btn>
+<Btn disabled>次按钮</Btn>
+<Btn type="ghost" disabled>幽灵按钮</Btn>
+<Btn type="dashed" disabled>虚线按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
 <button-group>
-    <Button type="primary">主按钮</Button>
-    <Button>次按钮</Button>
-    <Button type="ghost">幽灵按钮</Button>
-    <Button type="dashed" disabled>虚线按钮</Button>
+    <Btn type="primary">主按钮</Btn>
+    <Btn>次按钮</Btn>
+    <Btn type="ghost">幽灵按钮</Btn>
+    <Btn type="dashed" disabled>虚线按钮</Btn>
 </button-group>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" :on-click="testClick">中号按钮</Button>
+<Btn type="primary" :on-click="testClick">中号按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
-<Button type="primary" :loading="loading" :on-click="() => loading = true">中号按钮</Button>
+<Btn type="primary" :loading="loading" :on-click="() => loading = true">中号按钮</Btn>
 
 <hr style="margin:20px 0;"/>
 
 <script src="../dist/bundle.js"></script>
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            loading: false,
+            alertShow: false
+        },
+        methods: {
+            testClick() {
+                console.log('click happened!')
+            }
+        }
+    })
+</script>
 </body>
 </html>

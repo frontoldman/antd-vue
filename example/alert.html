@@ -36,6 +36,19 @@
 </Row>
 
 <script src="../dist/bundle.js"></script>
-
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            loading: false,
+            alertShow: false
+        },
+        methods: {
+            testClick() {
+                console.log('click happened!')
+            }
+        }
+    })
+</script>
 </body>
 </html>
