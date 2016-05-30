@@ -12,6 +12,7 @@ import * as Row from "./Layout/Row.vue";
 import * as Column from "./Layout/Column.vue";
 import * as Alert from "./Alert/Alert.vue";
 import * as Badge from "./Badge/Badge.vue";
+import * as Carousel from "./Carousel/Carousel.vue";
 
 Vue.component('Affix', Vue.extend(Affix));
 Vue.component('Btn', Vue.extend(Button));
@@ -21,6 +22,7 @@ Vue.component('Row', Vue.extend(Row));
 Vue.component('Column', Vue.extend(Column));
 Vue.component('Alert', Vue.extend(Alert));
 Vue.component('Badge', Vue.extend(Badge));
+Vue.component('Carousel', Vue.extend(Carousel));
 
 window.Vue = Vue;
 
