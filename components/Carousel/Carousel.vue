@@ -15,11 +15,11 @@
                      :style="{
                         opacity: 1,
                         width: contentWidth*(contents.length+2) + 'px',
-                        transform: 'translate3d(-'+ (contentWidth * (current+1)) +'px, 0px, 0px)',
+                        transform: transform,
                         transition: transition}" >
-                    <div :style="{width: contentWidth + 'px'}" class="slick-slide">{{{contents[contents.length-1]}}}</div>
-                    <div v-for="child in contents" :style="{width: contentWidth + 'px'}" class="slick-slide {{$index === current ? 'slick-active' : ''}}">{{{child}}}</div>
-                    <div :style="{width: contentWidth + 'px'}" class="slick-slide">{{{contents[0]}}}</div>
+                    <div v-if="effect === 'scrollx'" :style="{width: contentWidth + 'px'}" class="slick-slide">{{{contents[contents.length-1]}}}</div>
+                    <div v-for="child in contents" :style="getItemStyle($index)" class="slick-slide {{$index === current ? 'slick-active' : ''}}">{{{child}}}</div>
+                    <div v-if="effect === 'scrollx'" :style="{width: contentWidth + 'px'}" class="slick-slide">{{{contents[0]}}}</div>
                 </div>
             </div>
             <ul class="slick-dots" style="display: block;">
@@ -34,7 +34,10 @@
 
     export default {
         props: {
-            //props here
+            effect: {
+                type: String,
+                default: 'scrollx'
+            }
         },
         data() {
             return {
@@ -42,12 +45,33 @@
                 contents: [],
                 contentWidth: 0,
                 opacity: 1,
-                transition: false
+                transition: 'none'
+
             }
         },
         ready() {
             this.initDom();
             this.getShapeSize();
+
+        },
+        computed: {
+            transform() {
+                if(this.effect === 'scrollx'){
+                    return 'translate3d(-'+ (this.contentWidth * (this.current+1)) +'px, 0px, 0px)';
+                }
+                return false;
+            },
+            itemStyle() {
+                let style = {
+                    width: this.contentWidth + 'px'
+                };
+
+                if(this.effect === 'fade'){
+
+                }
+
+                return style
+            }
         },
         methods: {
             initDom() {
@@ -63,9 +87,32 @@
                 this.contentWidth = width;
             },
             clickDot(index) {
-                this.transition = '500ms ease';
+                if(this.effect === 'scrollx'){
+                    this.transition = '500ms ease';
+                    setTimeout(() => this.transition = 'none',600)
+                }else if(this.effect === 'fade'){
+
+                }
+
                 this.current = index;
-                setTimeout(() => this.transition = false,600)
+            },
+            getItemStyle(index) {
+                let style = {
+                    width: this.contentWidth + 'px'
+                };
+
+                if(this.effect === 'fade'){
+                    style.position = 'relative';
+                    style.transition = 'opacity 500ms ease';
+                    style.left = -index * this.contentWidth + 'px';
+                    if(index === this.current){
+                        style.opacity = 1;
+                    }else{
+                        style.opacity = 0;
+                    }
+                }
+
+                return style
             }
         }
     }
