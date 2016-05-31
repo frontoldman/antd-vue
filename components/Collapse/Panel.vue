@@ -7,11 +7,11 @@
 </style>
 
 <template>
-    <div class="ant-collapse-item">
+    <div class="ant-collapse-item" key="{{key}}">
         <div class="ant-collapse-header" role="tab" aria-expanded="true">
             <i class="arrow"></i>{{header}}
         </div>
-        <div class="ant-collapse-content ant-collapse-content-active" role="tabpanel">
+        <div class="ant-collapse-content" role="tabpanel">
             <div class="ant-collapse-content-box">
                 <p>
                     <slot></slot>
@@ -25,7 +25,9 @@
 
     export default {
         props: {
-            header: String
+            header: String,
+            key: String,
+            defaultActiveKey: Array
         },
         data() {
             return {
@@ -33,7 +35,6 @@
             }
         },
         ready() {
-
         },
         methods: {}
     }
