@@ -9,14 +9,12 @@
 <template>
     <div class="ant-collapse-item">
         <div class="ant-collapse-header" role="tab" aria-expanded="true">
-            <i class="arrow"></i><!-- react-text: 608 -->This is panel header 1<!-- /react-text -->
+            <i class="arrow"></i>{{header}}
         </div>
         <div class="ant-collapse-content ant-collapse-content-active" role="tabpanel">
             <div class="ant-collapse-content-box">
                 <p>
-                    A dog is a type of domesticated animal.
-                    Known for its loyalty and faithfulness,
-                    it can be found as a welcome guest in many households across the world.
+                    <slot></slot>
                 </p>
             </div>
         </div>
@@ -27,7 +25,7 @@
 
     export default {
         props: {
-            //props here
+            header: String
         },
         data() {
             return {
