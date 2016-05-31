@@ -13,6 +13,8 @@ import * as Column from "./Layout/Column.vue";
 import * as Alert from "./Alert/Alert.vue";
 import * as Badge from "./Badge/Badge.vue";
 import * as Carousel from "./Carousel/Carousel.vue";
+import * as Collapse from "./Collapse/Collapse.vue";
+import * as Panel from "./Collapse/Panel.vue";
 
 Vue.component('Affix', Vue.extend(Affix));
 Vue.component('Btn', Vue.extend(Button));
@@ -23,6 +25,8 @@ Vue.component('Column', Vue.extend(Column));
 Vue.component('Alert', Vue.extend(Alert));
 Vue.component('Badge', Vue.extend(Badge));
 Vue.component('Carousel', Vue.extend(Carousel));
+Vue.component('Collapse', Vue.extend(Collapse));
+Vue.component('Panel', Vue.extend(Panel));
 
 window.Vue = Vue;
 
