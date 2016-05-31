@@ -73,6 +73,9 @@
             this.getShapeSize();
             this.initAutoPlay();
         },
+        beforeDestroy() {
+            clearTimeout(this.autoTimeout);
+        },
         computed: {
             transform() {
                 if(this.effect === 'scrollx'){
